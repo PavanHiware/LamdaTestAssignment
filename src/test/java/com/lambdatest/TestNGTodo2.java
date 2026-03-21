@@ -61,7 +61,7 @@ public class TestNGTodo2 {
         System.out.println("clicking on simple link text ");
 //click on drag & drop sliders    
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Simple Form Demo")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Drag & Drop Sliders")));
         driver.findElement(By.linkText("Drag & Drop Sliders")).click();
         System.out.println("clicked on link");
 //validate the slider    
