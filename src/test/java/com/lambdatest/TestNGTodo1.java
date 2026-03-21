@@ -3,9 +3,11 @@ package com.lambdatest;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
@@ -19,30 +21,34 @@ public class TestNGTodo1 {
     private RemoteWebDriver driver;
     private String Status = "failed";
 
-    @BeforeMethod
+    @SuppressWarnings("deprecation")
+	@BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
-        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
+        String username = "pavanhiware11";
+        String authkey = "LT_jNCTayEqS0ANefOn6f97OAeSqKTNOMtYedb8MVBmGH47iQv";
 
         String hub = "@hub.lambdatest.com/wd/hub";
 
         // ✅ Use LambdaTest W3C-compliant structure (LT:Options)
-        MutableCapabilities ltOptions = new MutableCapabilities();
-        ltOptions.setCapability("build", "TestNG With Java");
-        ltOptions.setCapability("name", m.getName() + " - " + this.getClass().getName());
-        ltOptions.setCapability("platformName", "macOS Sonoma"); // modern macOS
-        ltOptions.setCapability("plugin", "git-testng");
-        ltOptions.setCapability("tags", new String[] { "Feature", "Falcon", "Severe" });
-
+        ChromeOptions browserOptions = new ChromeOptions();
+        browserOptions.setPlatformName("Windows 11");
+        browserOptions.setBrowserVersion("latest");
+        HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+        ltOptions.put("username", username);
+        ltOptions.put("accessKey", authkey);
+        ltOptions.put("project", "Untitled");
+        ltOptions.put("w3c", true);
+        ltOptions.put("plugin", "java-testNG");
+        browserOptions.setCapability("LT:Options", ltOptions);
         /*
         Enable Smart UI Project (optional)
         ltOptions.setCapability("smartUI.project", "<Project Name>");
         */
 
-        // ✅ Safari browser setup (works with Selenium 4.x)
-        SafariOptions browserOptions = new SafariOptions();
-        browserOptions.setCapability("browserVersion", "latest");
-        browserOptions.setCapability("LT:Options", ltOptions);
+//        // ✅ Safari browser setup (works with Selenium 4.x)
+//        ChromeOptions browserOptions = new ChromeOptions();
+//        browserOptions.setCapability("browserVersion", "latest");
+//        browserOptions.setCapability("LT:Options", ltOptions);
 
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), browserOptions);
     }

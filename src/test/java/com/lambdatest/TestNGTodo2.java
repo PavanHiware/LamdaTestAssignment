@@ -19,10 +19,11 @@ public class TestNGTodo2 {
     private RemoteWebDriver driver;
     private String Status = "failed";
 
-    @BeforeMethod
+    @SuppressWarnings("deprecation")
+	@BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
-        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
+        String username = "pavanhiware11" ;
+        String authkey = "LT_jNCTayEqS0ANefOn6f97OAeSqKTNOMtYedb8MVBmGH47iQv";
 
         String hub = "@hub.lambdatest.com/wd/hub";
 
