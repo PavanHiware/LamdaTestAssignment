@@ -56,15 +56,15 @@ public class TestNGTodo2 {
     @Test
     public void basicTest() throws InterruptedException {
         System.out.println("Loading Url");
-
+//open website
         driver.get("https://www.testmuai.com/selenium-playground/");
         System.out.println("clicking on simple link text ");
-        
+//click on drag & drop sliders    
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Simple Form Demo")));
         driver.findElement(By.linkText("Drag & Drop Sliders")).click();
         System.out.println("clicked on link");
-        
+//validate the slider    
         WebElement slider = driver.findElement(By.xpath("//*[@id='slider3']"));
         WebElement inputSlider = slider.findElement(By.xpath("//*[@id='slider3']/div/input"));
         WebElement outputValue = slider.findElement(By.xpath("//*[@id='slider3']/div/output"));
@@ -72,37 +72,10 @@ public class TestNGTodo2 {
         while (!outputValue.getText().equals("95")) {
 			inputSlider.sendKeys(Keys.ARROW_RIGHT);
 		}
-        
+        System.out.println("Slider is draged to required value");
+//validate slider value 
         Assert.assertEquals(outputValue.getText(), "95");
-//        System.out.println("Checking boxes...");
-//        driver.findElement(By.name("li1")).click();
-//        driver.findElement(By.name("li2")).click();
-//        driver.findElement(By.name("li3")).click();
-//        driver.findElement(By.name("li4")).click();
-//
-//        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 6");
-//        driver.findElement(By.id("addbutton")).click();
-//
-//        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 7");
-//        driver.findElement(By.id("addbutton")).click();
-//
-//        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 8");
-//        driver.findElement(By.id("addbutton")).click();
-//
-//        driver.findElement(By.name("li1")).click();
-//        driver.findElement(By.name("li3")).click();
-//        driver.findElement(By.name("li7")).click();
-//        driver.findElement(By.name("li8")).click();
-
-//        System.out.println("Entering Text");
-//        driver.findElement(By.id("sampletodotext")).sendKeys("Get Taste of Lambda and Stick to It");
-//        driver.findElement(By.id("addbutton")).click();
-//
-//        driver.findElement(By.name("li9")).click();
-
-        // ✅ Assert that the newly added todo is present
-//        String spanText = driver.findElement(By.xpath("//li[9]/span")).getText();
-//        Assert.assertEquals(spanText, "Get Taste of Lambda and Stick to It");
+        System.out.println("Slider validaton is complted.");
 
         Status = "passed";
         Thread.sleep(150);
