@@ -3,11 +3,16 @@ package com.lambdatest;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
@@ -52,37 +57,52 @@ public class TestNGTodo2 {
     public void basicTest() throws InterruptedException {
         System.out.println("Loading Url");
 
-        driver.get("https://lambdatest.github.io/sample-todo-app/");
+        driver.get("https://www.testmuai.com/selenium-playground/");
+        System.out.println("clicking on simple link text ");
+        
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Simple Form Demo")));
+        driver.findElement(By.linkText("Drag & Drop Sliders")).click();
+        System.out.println("clicked on link");
+        
+        WebElement slider = driver.findElement(By.xpath("//*[@id='slider3']"));
+        WebElement inputSlider = slider.findElement(By.xpath("//*[@id='slider3']/div/input"));
+        WebElement outputValue = slider.findElement(By.xpath("//*[@id='slider3']/div/output"));
+        
+        while (!outputValue.getText().equals("95")) {
+			inputSlider.sendKeys(Keys.ARROW_RIGHT);
+		}
+        
+        Assert.assertEquals(outputValue.getText(), "95");
+//        System.out.println("Checking boxes...");
+//        driver.findElement(By.name("li1")).click();
+//        driver.findElement(By.name("li2")).click();
+//        driver.findElement(By.name("li3")).click();
+//        driver.findElement(By.name("li4")).click();
+//
+//        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 6");
+//        driver.findElement(By.id("addbutton")).click();
+//
+//        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 7");
+//        driver.findElement(By.id("addbutton")).click();
+//
+//        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 8");
+//        driver.findElement(By.id("addbutton")).click();
+//
+//        driver.findElement(By.name("li1")).click();
+//        driver.findElement(By.name("li3")).click();
+//        driver.findElement(By.name("li7")).click();
+//        driver.findElement(By.name("li8")).click();
 
-        System.out.println("Checking boxes...");
-        driver.findElement(By.name("li1")).click();
-        driver.findElement(By.name("li2")).click();
-        driver.findElement(By.name("li3")).click();
-        driver.findElement(By.name("li4")).click();
-
-        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 6");
-        driver.findElement(By.id("addbutton")).click();
-
-        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 7");
-        driver.findElement(By.id("addbutton")).click();
-
-        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 8");
-        driver.findElement(By.id("addbutton")).click();
-
-        driver.findElement(By.name("li1")).click();
-        driver.findElement(By.name("li3")).click();
-        driver.findElement(By.name("li7")).click();
-        driver.findElement(By.name("li8")).click();
-
-        System.out.println("Entering Text");
-        driver.findElement(By.id("sampletodotext")).sendKeys("Get Taste of Lambda and Stick to It");
-        driver.findElement(By.id("addbutton")).click();
-
-        driver.findElement(By.name("li9")).click();
+//        System.out.println("Entering Text");
+//        driver.findElement(By.id("sampletodotext")).sendKeys("Get Taste of Lambda and Stick to It");
+//        driver.findElement(By.id("addbutton")).click();
+//
+//        driver.findElement(By.name("li9")).click();
 
         // ✅ Assert that the newly added todo is present
-        String spanText = driver.findElement(By.xpath("//li[9]/span")).getText();
-        Assert.assertEquals(spanText, "Get Taste of Lambda and Stick to It");
+//        String spanText = driver.findElement(By.xpath("//li[9]/span")).getText();
+//        Assert.assertEquals(spanText, "Get Taste of Lambda and Stick to It");
 
         Status = "passed";
         Thread.sleep(150);
