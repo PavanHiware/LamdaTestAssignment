@@ -1,14 +1,19 @@
 package com.lambdatest;
 
+import static org.testng.Assert.assertEquals;
+
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.safari.SafariOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -58,44 +63,37 @@ public class TestNGTodo1 {
         System.out.println("Loading Url");
         driver.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \"Opening WebApp\", \"level\": \"info\"}}");
 
-        driver.get("https://lambdatest.github.io/sample-todo-app/");
+        driver.get("https://www.testmuai.com/selenium-playground/");
 
         driver.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \"Checking List Items\", \"level\": \"info\"}}");
 
-        System.out.println("Checking Boxes...");
-        driver.findElement(By.name("li1")).click();
-        driver.findElement(By.name("li2")).click();
-        driver.findElement(By.name("li3")).click();
-        driver.findElement(By.name("li4")).click();
+        System.out.println("clicking on simple link text ");
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Simple Form Demo")));
+        driver.findElement(By.linkText("Simple Form Demo")).click();
+        System.out.println("clicked on link");
         driver.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \"Adding Items\", \"level\": \"info\"}}");
-
-        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 6");
-        driver.findElement(By.id("addbutton")).click();
-
-        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 7");
-        driver.findElement(By.id("addbutton")).click();
-
-        driver.findElement(By.id("sampletodotext")).sendKeys(" List Item 8");
-        driver.findElement(By.id("addbutton")).click();
+        
+        String url = driver.getCurrentUrl();
+        if(url.contains("simple-form-demo")) {
+        	Assert.assertEquals(url, "https://www.testmuai.com/selenium-playground/simple-form-demo/");
+        	System.out.println("URL validation is completed....");
+        }
 
         driver.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \"Checking More Items\", \"level\": \"info\"}}");
-
-        driver.findElement(By.name("li1")).click();
-        driver.findElement(By.name("li3")).click();
-        driver.findElement(By.name("li7")).click();
-        driver.findElement(By.name("li8")).click();
-        Thread.sleep(300);
+        String inputString = "Welcome to TestMu AI";
+        
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("user-message")));
+        driver.findElement(By.id("user-message")).sendKeys(inputString);
+        driver.findElement(By.xpath("//button[@id='showInput']")).click();
 
         driver.executeScript("lambdatest_executor: {\"action\": \"stepcontext\", \"arguments\": {\"data\": \"Adding and Verify List Items\", \"level\": \"info\"}}");
-        driver.findElement(By.id("sampletodotext")).sendKeys("Get Taste of Lambda and Stick to It");
-        driver.findElement(By.id("addbutton")).click();
 
-        driver.findElement(By.name("li9")).click();
-
-        String spanText = driver.findElement(By.xpath("//li[9]/span")).getText();
-        Assert.assertEquals(spanText.trim(), "Get Taste of Lambda and Stick to It");
-
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//p[@id='message']"))));
+        String displayedMessage = driver.findElement(By.xpath("//p[@id='message']")).getText();
+        Assert.assertEquals(displayedMessage, "Welcome to TestMu AI");
+        System.out.println("Message reflecting correct..");
         Status = "passed";
         Thread.sleep(150);
 
