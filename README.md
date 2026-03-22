@@ -66,4 +66,4 @@ Set your credentials before running tests:
 💼 Automation Test Engineer  
 📧 Email: pavanhiware11@gmail.com  
 🔗 GitHub: https://github.com/PavanHiware  
-🔗 LinkedIn: (Add your LinkedIn profile link here)
+🔗 LinkedIn: www.linkedin.com/in/pavan-hiware
