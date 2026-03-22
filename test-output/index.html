@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">3 methods, 3 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -101,6 +101,16 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
                     </span>
                     <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.lambdatest.TestNGTodo2" class="method navigator-link" hash-for-method="basicTest">basicTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.lambdatest.TestNGTodo1" class="method navigator-link" hash-for-method="basicTest">basicTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.lambdatest.TestNGTodo3" class="method navigator-link" hash-for-method="basicTest">basicTest</a> <!-- method navigator-link -->
@@ -121,7 +131,7 @@
           <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.lambdatest.TestNGTodo3</span>
+              <span class="class-name">com.lambdatest.TestNGTodo2</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -129,15 +139,16 @@
                   <a name="basicTest">
                   </a> <!-- basicTest -->
                   <span class="method-name">basicTest</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button type=&quot;submit&quot; class=&quot;bg-lambda-900 hover:bg-transparent hover:text-lambda-900 border border-lambda-900 text-white rounded p-10 focus:outline-none w-180 selenium_btn py-5 px-10 rounded&quot;&gt;...&lt;/button&gt; is not clickable at point (1451, 829). Other element would receive the click: &lt;div class=&quot;CybotCookiebotScrollContainer&quot; style=&quot;min-height: 131px;&quot;&gt;...&lt;/div&gt;
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
   (Session info: chrome=146.0.7680.154)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
 Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.3&apos;
 Driver info: org.openqa.selenium.remote.RemoteWebDriver
-Command: [ac8b0c12d27077f91f2080775fc8d7a8, clickElement {id=f.ADA9F39DDC8E479E7288C642FA15EFAC.d.284C097F8B66F6C5F3D3B5605D493A5D.e.242}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.154, chrome: {chromedriverVersion: 146.0.7680.154 (1e5cd4f5284..., userDataDir: /var/folders/sy/z10qqst9617...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:9225}, goog:processID: 17968, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[RemoteWebDriver: chrome on mac (ac8b0c12d27077f91f2080775fc8d7a8)] -&gt; xpath: //button[text()=&apos;Submit&apos;]]
-Session ID: ac8b0c12d27077f91f2080775fc8d7a8
+Command: [3f4fe9acab35a363010792202e3c7c38, clickElement {id=f.7285D7F2FF2FA28538D0B31CF9166B05.d.4E08B5425F53B030A61FD83BD212F3AD.e.66}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.154, chrome: {chromedriverVersion: 146.0.7680.154 (1e5cd4f5284..., userDataDir: C:\Program Files (x86)\scop...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:9225}, goog:processID: 1056, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[RemoteWebDriver: chrome on windows (3f4fe9acab35a363010792202e3c7c38)] -&gt; link text: Drag &amp; Drop Sliders]
+Session ID: 3f4fe9acab35a363010792202e3c7c38
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -146,7 +157,88 @@ Session ID: ac8b0c12d27077f91f2080775fc8d7a8
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at com.lambdatest.TestNGTodo3.basicTest(TestNGTodo3.java:64)
+	at com.lambdatest.TestNGTodo2.basicTest(TestNGTodo2.java:65)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 14 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.lambdatest.TestNGTodo3</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="basicTest">
+                  </a> <!-- basicTest -->
+                  <span class="method-name">basicTest</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button type=&quot;submit&quot; class=&quot;bg-lambda-900 hover:bg-transparent hover:text-lambda-900 border border-lambda-900 text-white rounded p-10 focus:outline-none w-180 selenium_btn py-5 px-10 rounded&quot;&gt;...&lt;/button&gt; is not clickable at point (1451, 18). Other element would receive the click: &lt;a href=&quot;https://accounts.lambdatest.com/login&quot; class=&quot;chfw-nav-link chfw-login&quot;&gt;...&lt;/a&gt;
+  (Session info: chrome=146.0.7680.154)
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.3&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [d6930766789827cc64034fc520ef50a8, clickElement {id=f.6790B9094368447B4CAF01F36905CD6D.d.177EA6C604A081BAA099D4758EC75DB6.e.220}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.154, chrome: {chromedriverVersion: 146.0.7680.154 (1e5cd4f5284..., userDataDir: /var/folders/sy/z10qqst9617...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:9225}, goog:processID: 25547, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[RemoteWebDriver: chrome on mac (d6930766789827cc64034fc520ef50a8)] -&gt; xpath: //button[text()=&apos;Submit&apos;]]
+Session ID: d6930766789827cc64034fc520ef50a8
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:53)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.lambdatest.TestNGTodo3.basicTest(TestNGTodo3.java:69)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 14 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.lambdatest.TestNGTodo1</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="basicTest">
+                  </a> <!-- basicTest -->
+                  <span class="method-name">basicTest</span>
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=146.0.7680.154)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.3&apos;
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [75e222de5f77ef05ebff2aa54630db7b, clickElement {id=f.597AF70DE82CE1DDEF38BAF5AA64ED2A.d.A29DD82B6009064581D24827039968B0.e.60}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.154, chrome: {chromedriverVersion: 146.0.7680.154 (1e5cd4f5284..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:9225}, goog:processID: 5624, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[RemoteWebDriver: chrome on windows (75e222de5f77ef05ebff2aa54630db7b)] -&gt; link text: Simple Form Demo]
+Session ID: 75e222de5f77ef05ebff2aa54630db7b
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:53)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at com.lambdatest.TestNGTodo1.basicTest(TestNGTodo1.java:74)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
@@ -170,6 +262,8 @@ Session ID: ac8b0c12d27077f91f2080775fc8d7a8
 &lt;suite thread-count=&quot;1&quot; parallel=&quot;tests&quot; name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;1&quot; parallel=&quot;classes&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.lambdatest.TestNGTodo1&quot;/&gt;
+      &lt;class name=&quot;com.lambdatest.TestNGTodo2&quot;/&gt;
       &lt;class name=&quot;com.lambdatest.TestNGTodo3&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
@@ -184,7 +278,7 @@ Session ID: ac8b0c12d27077f91f2080775fc8d7a8
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Test (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -210,16 +304,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'basicTest')
 data.setCell(0, 2, 'com.lambdatest.TestNGTodo3')
-data.setCell(0, 3, 5297);
+data.setCell(0, 3, 5296);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'basicTest')
+data.setCell(1, 2, 'com.lambdatest.TestNGTodo1')
+data.setCell(1, 3, 1799);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'basicTest')
+data.setCell(2, 2, 'com.lambdatest.TestNGTodo2')
+data.setCell(2, 3, 1433);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 17 seconds</span>
+              <span class="suite-total-time">Total running time: 39 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -245,20 +347,54 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.lambdatest.TestNGTodo3</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.lambdatest.TestNGTodo1</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setup(public void com.lambdatest.TestNGTodo3.basicTest() throws java.lang.InterruptedException, org.testng...)</span>
+                <span class="method-name">setup(public void com.lambdatest.TestNGTodo1.basicTest() throws java.lang.InterruptedException, org.testng...)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">basicTest</span>
-                <span class="method-start">10604 ms</span>
+                <span class="method-start">11581 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">15913 ms</span>
+                <span class="method-start">13390 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.lambdatest.TestNGTodo2</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setup(public void com.lambdatest.TestNGTodo2.basicTest() throws java.lang.InterruptedException, org.testng...)</span>
+                <span class="method-start">15845 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">basicTest</span>
+                <span class="method-start">21383 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">22820 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.lambdatest.TestNGTodo3</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setup(public void com.lambdatest.TestNGTodo3.basicTest() throws java.lang.InterruptedException, org.testng...)</span>
+                <span class="method-start">24143 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">basicTest</span>
+                <span class="method-start">32626 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">37924 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

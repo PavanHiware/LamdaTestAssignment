@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.lambdatest.TestNGTodo1">
+      <class name="com.lambdatest.TestNGTodo3">
         <methods>
+          <include name="tearDown"/>
           <include name="basicTest"/>
           <include name="setup"/>
-          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.lambdatest.TestNGTodo1 -->
+      </class> <!-- com.lambdatest.TestNGTodo3 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -6,6 +6,7 @@ import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -56,20 +57,24 @@ public class TestNGTodo3 {
     	    
     	    // Using an explicit wait to ensure the link is clickable
     	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	    
     	    wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Input Form Submit"))).click();
     	    
     	    // 2. Click "Submit" without filling in any information in the form
+    	    
     	    wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='Submit']"))));
+    	    
     	    WebElement submitButton = driver.findElement(By.xpath("//button[text()='Submit']"));
+    	    driver.executeScript("arguments[0].scrollIntoView(true);", submitButton);
     	    submitButton.click();
     	    System.out.println("Submit button is clicked without adding info");
 //    	    // 3. Assert "Please fill in this field." error message on the Name field
 //    	    // Note: This is a browser-native validation message
     	    WebElement nameField = driver.findElement(By.id("name"));
-//    	    wait.until(ExpectedConditions.visibilityOf(nameField));
-//    	    String actualErrorMessage = nameField.getAttribute("validationMessage");
-//    	    Assert.assertEquals(actualErrorMessage, "Please fill in this field.");
-//    	    System.out.println("✅ Validation message verified: " + actualErrorMessage);
+    	    wait.until(ExpectedConditions.visibilityOf(nameField));
+    	    String actualErrorMessage = nameField.getAttribute("validationMessage");
+    	    Assert.assertEquals(actualErrorMessage, "Please fill in this field.");
+    	    System.out.println("✅ Validation message verified: " + actualErrorMessage);
 
     	    // 4. Fill in Name, Email, and other fields
     	    nameField.sendKeys("Pavan Hiware");
@@ -86,7 +91,7 @@ public class TestNGTodo3 {
     	    // 6. Fill in remaining fields
     	    driver.findElement(By.id("inputCity")).sendKeys("San Jose");
     	    driver.findElement(By.id("inputAddress1")).sendKeys("123 Test Street");
-    	    driver.findElement(By.id("inputAddress2")).sendKeys("Suite 100");
+    	    driver.findElement(By.id("inputAddress2")).sendKeys("Suite 100");////////////
     	    driver.findElement(By.id("inputState")).sendKeys("California");
     	    driver.findElement(By.id("inputZip")).sendKeys("95131");
 

@@ -58,7 +58,7 @@ public class TestNGTodo2 {
         System.out.println("Loading Url");
 //open website
         driver.get("https://www.testmuai.com/selenium-playground/");
-        System.out.println("clicking on simple link text ");
+        System.out.println("clicking on Drag & Drop Sliders text ");
 //click on drag & drop sliders    
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Drag & Drop Sliders")));
