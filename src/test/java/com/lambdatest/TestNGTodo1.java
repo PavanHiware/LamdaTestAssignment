@@ -56,6 +56,8 @@ public class TestNGTodo1 {
 //        browserOptions.setCapability("LT:Options", ltOptions);
 
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), browserOptions);
+        String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
+        System.out.println("LambdaTest Session ID: " + sessionId);
     }
 
     @Test
@@ -99,6 +101,7 @@ public class TestNGTodo1 {
 
         System.out.println("Test Finished");
     }
+    
 
     @AfterMethod
     public void tearDown() {

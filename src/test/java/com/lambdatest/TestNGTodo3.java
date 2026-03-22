@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
+import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
@@ -47,6 +48,8 @@ public class TestNGTodo3 {
         browserOptions.setCapability("LT:Options", ltOptions);
 
         driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), browserOptions);
+        String sessionId = ((RemoteWebDriver) driver).getSessionId().toString();
+        System.out.println("LambdaTest Session ID: " + sessionId);
     }
 
     @Test
@@ -55,18 +58,19 @@ public class TestNGTodo3 {
     	    // 1. Open the Playground and click "Input Form Submit"
     	    driver.get("https://www.lambdatest.com/selenium-playground/");
     	    
-    	    // Using an explicit wait to ensure the link is clickable
+//    	    // Using an explicit wait to ensure the link is clickable
     	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    	    
-    	    wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Input Form Submit"))).click();
-    	    
-    	    // 2. Click "Submit" without filling in any information in the form
-    	    
+//    	    
+//    	    wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Input Form Submit"))).click();
+//    	    
+//    	    // 2. Click "Submit" without filling in any information in the form
+//    	    driver.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id=\"seleniumform\"]/div[6]/button")));
+    	    ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,200)");
     	    wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='Submit']"))));
-    	    
+//    	    
     	    WebElement submitButton = driver.findElement(By.xpath("//button[text()='Submit']"));
-    	    driver.executeScript("arguments[0].scrollIntoView(true);", submitButton);
-    	    submitButton.click();
+//    	    driver.executeScript("arguments[0].scrollIntoView(true);", submitButton);
+//    	    submitButton.click();
     	    System.out.println("Submit button is clicked without adding info");
 //    	    // 3. Assert "Please fill in this field." error message on the Name field
 //    	    // Note: This is a browser-native validation message
